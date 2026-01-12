@@ -6,7 +6,7 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/01/12 17:52:07 by vborysov         ###   ########.fr        #
+#    Updated: 2026/01/12 18:05:22 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ NAME = push_swap
 
 # Исходники
 SRCS = main.c \
-       io.c
+       io.c \
+	   node.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 
 # Объектные файлы
