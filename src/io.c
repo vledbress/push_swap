@@ -12,3 +12,17 @@ void	ft_putstr(char *str)
 		ft_putchar(*str++);
 }
 
+void	ft_putnbr(int num)
+{
+	long n;
+
+	n = num;
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	ft_putchar((n % 10) + '0');
+}
