@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:26:29 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/12 17:38:35 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/12 17:47:10 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,16 @@ typedef struct	s_stack
 	int		size;
 }				t_stack;
 
+void	ft_swap(t_stack	*stack);
+void	ft_s_swap(t_stack	*stack_a, t_stack	*stack_b);
+void	ft_push(t_stack	*stack);
+void	ft_rotate(t_stack	*stack);
+void	ft_r_rotate(t_stack	*stack_a, t_stack	*stack_b);
+void	ft_rev_rotate(t_stack	*stack);
+void	ft_r_rev_rotate(t_stack	*stack_a, t_stack	*stack_b);
 
 
 
-#endif STACK_H
+
+
+#endif 
