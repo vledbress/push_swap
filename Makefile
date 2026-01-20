@@ -6,7 +6,7 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/01/19 00:46:59 by vborysov         ###   ########.fr        #
+#    Updated: 2026/01/20 13:42:25 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS = main.c \
        io.c \
 	   node.c \
 	   stack_basic.c \
-	   stack_operations_1.c
+	   stack_operations_1.c \
+	   stack_operations_2.c
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 
 # Объектные файлы

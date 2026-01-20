@@ -47,9 +47,9 @@ void	ft_push_bottom(t_stack	*stack, t_node	*node)
 	node->prev = stack->tail;
 	node->next = NULL;
 	if (stack->tail)
-        stack->tail->next = node;
-    else
-        stack->head = node;
+		stack->tail->next = node;
+	else
+		stack->head = node;
 	stack->tail = node;
 	stack->size++;
 }
