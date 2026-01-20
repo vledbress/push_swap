@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:42:16 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/19 01:21:53 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:26:06 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_push(t_stack	*stack_a, t_stack *stack_b)
 void ft_rotate(t_stack *stack)
 {
 	t_node	*first;
-
+ 
 	if (!stack || stack->size < 2)
 		return ;
 	first = stack->head;
