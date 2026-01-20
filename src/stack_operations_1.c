@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:42:16 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/19 14:26:06 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/20 14:06:45 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void	ft_swap(t_stack	*stack)
 
 	if (!stack || stack->size < 2)
 		return ;
-	first = stack->head;          
-	second = stack->head->next;   
-	first->next = second->next;   
-	second->next = first;         
-	stack->head = second;         
+	first = ft_pop_top(stack);
+	second = ft_pop_top(stack);
+	ft_push_top(stack, first);
+	ft_push_top(stack, second);       
 }
 
 void	ft_s_swap(t_stack	*stack_a, t_stack	*stack_b)
@@ -39,19 +38,22 @@ void	ft_push(t_stack	*stack_a, t_stack *stack_b)
 		return ;
 	ft_push_top(stack_a, ft_pop_top(stack_b));
 }
+
+// void ft_rotate(t_stack *stack)
+// {
+// 	t_node	*first;
+ 
+// 	if (!stack || stack->size < 2)
+// 		return ;
+// 	first = ft_pop_top(stack);
+// 	ft_push_bottom(stack, first);
+// }
+
 void ft_rotate(t_stack *stack)
 {
-	t_node	*first;
- 
 	if (!stack || stack->size < 2)
 		return ;
-	first = stack->head;
-	stack->head = first->next;
-	stack->head->prev = NULL;
-	first->next = NULL;
-	first->prev = stack->tail;
-	stack->tail->next = first;
-	stack->tail = first;
+	ft_push_bottom(stack, ft_pop_top(stack));
 }
 
 void	ft_r_rotate(t_stack	*stack_a, t_stack	*stack_b)

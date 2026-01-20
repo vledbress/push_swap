@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:46:48 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/19 00:51:14 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/20 14:16:21 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int	num);
+int		ft_atoi(char	*str);
 
 #endif
