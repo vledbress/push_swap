@@ -1,15 +1,15 @@
 #include "io.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(int fd, char c)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
-void	ft_putstr(char *str)
+void	ft_putstr(int fd, char *str)
 {
 	if (!str)
 		return ;
 	while (*str)
-		ft_putchar(*str++);
+		ft_putchar(fd, *str++);
 }
 
 void	ft_putnbr(int num)
@@ -19,35 +19,11 @@ void	ft_putnbr(int num)
 	n = num;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		ft_putchar(1, '-');
 		n = -n;
 	}
 	if (n >= 10)
 		ft_putnbr(n / 10);
-	ft_putchar((n % 10) + '0');
+	ft_putchar(1, (n % 10) + '0');
 }
 
-int		ft_atoi(char	*str)
-{
-	int	result;
-	int	sign;
-
-	if (!str)
-		return (0);
-	result = 0;
-	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
-}
