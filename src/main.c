@@ -6,14 +6,14 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/20 17:49:21 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/25 18:46:05 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "io.h"
 #include "stack.h"
 #include "error.h"
-
+#include "normalize.h"
 
 void	show_stack(t_stack	*stack)
 {
@@ -37,22 +37,19 @@ void	show_stack(t_stack	*stack)
 
 int	main(int ac, char	**av)
 {
-	t_stack	*stack_a;
-	
-	if (ac == 1)
-		return (-1);
-	stack_a = ft_new_stack();
-	ft_check_nums(ac, av);
-	ft_check_dups(ac, av);
-	
-	
-	for (int i = 1; i < ac; ++i)
-	{
-		ft_push_bottom(stack_a, ft_new_node(ft_atol(av[i])));
-	}
+	t_stack *stack_a;
+    int *arr;
+
+    stack_a = ft_new_stack();
+    for (int i = 1; i < ac; i++)
+        ft_push_bottom(stack_a, ft_new_node(ft_atol(av[i])));
+
+    arr = ft_copy_arr(ac, av);
+    ft_quick_sort(arr, 0, ac - 2);
+    ft_normalize_stack(stack_a, arr);
+    free(arr);
 
 	show_stack(stack_a);
 
-
-	ft_destroy_stack(stack_a);
+    ft_destroy_stack(stack_a);
 }
