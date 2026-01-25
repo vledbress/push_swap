@@ -6,14 +6,14 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:42:16 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/20 14:06:45 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/25 18:15:06 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include <stdlib.h>
 
-void	ft_swap(t_stack	*stack)
+void	ft_swap_stack(t_stack	*stack)
 {
 	t_node	*first;
 	t_node	*second;
@@ -26,10 +26,10 @@ void	ft_swap(t_stack	*stack)
 	ft_push_top(stack, second);       
 }
 
-void	ft_s_swap(t_stack	*stack_a, t_stack	*stack_b)
+void	ft_s_swap_stack(t_stack	*stack_a, t_stack	*stack_b)
 {
-	ft_swap(stack_a);
-	ft_swap(stack_b);
+	ft_swap_stack(stack_a);
+	ft_swap_stack(stack_b);
 }
 
 void	ft_push(t_stack	*stack_a, t_stack *stack_b)
