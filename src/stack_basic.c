@@ -11,6 +11,7 @@ t_stack	*ft_new_stack(void)
 	new_stack->size = 0;
 	return (new_stack);
 }
+
 void ft_destroy_stack(t_stack *stack)
 {
     t_node	*tmp;
@@ -53,6 +54,7 @@ void	ft_push_bottom(t_stack	*stack, t_node	*node)
 	stack->tail = node;
 	stack->size++;
 }
+
 t_node *ft_pop_top(t_stack *stack)
 {
     t_node	*head;

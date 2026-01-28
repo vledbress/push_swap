@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:51:12 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/20 17:45:38 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/28 19:55:51 by vblxssv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void ft_check_dups(int ac, char **av)
 	}
     
 }
+
 void	ft_check_nums(int ac, char	**av)
 {
 	int	i;
