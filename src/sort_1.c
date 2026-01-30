@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/30 23:05:25 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:30:01 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,40 +119,65 @@ int	ft_calculate_chunk(int	total_size)
 	return (chunk_size);
 }
 
-static void	ft_move_chunks_b(t_stack	*stack_a, t_stack	*stack_b)
+// static void	ft_move_chunks_b(t_stack	*stack_a, t_stack	*stack_b)
+// {
+// 	int	chunk_size;
+// 	int	chunk_current;
+// 	int	chunk_min;
+// 	int	chunk_max;
+// 	int	items_pushed;	
+	
+// 	chunk_size = ft_calculate_chunk(stack_a->size);
+// 	chunk_current = 0;
+// 	while (chunk_current * chunk_size < stack_a->size + stack_b->size)
+// 	{
+// 		chunk_min = chunk_size * chunk_current;
+// 		chunk_max = chunk_min + chunk_size;
+// 		if (chunk_max > stack_a->size + stack_b->size)
+//     		chunk_max = stack_a->size + stack_b->size;
+// 		items_pushed = 0;
+// 		while (items_pushed < chunk_max - chunk_min)
+// 		{
+// 			if(stack_a->head->data >= chunk_min && stack_a->head->data < chunk_max)
+// 			{
+// 				ft_push(stack_b, stack_a);
+// 				items_pushed++;
+// 			}
+// 			else
+// 				ft_rotate(stack_a);
+// 		}
+// 		chunk_current++;
+// 	}
+// }
+
+static void	ft_move_chunks_b(t_stack *a, t_stack *b)
 {
 	int	chunk_size;
-	int	chunk_count;
-	int	chunk_current;
-	int	chunk_min;
-	int	chunk_max;
-	int	items_pushed;	
-	int total_size = stack_a->size;
-	
-	chunk_size = ft_calculate_chunk(stack_a->size);
-	chunk_count = (stack_a->size + chunk_size - 1) / chunk_size;	
-	chunk_current = 0;
-	while (chunk_current < chunk_count)
+	int	chunk;
+	int	pushed;
+	int	limit;
+
+	chunk_size = ft_calculate_chunk(a->size);
+	chunk = 0;
+	while (chunk * chunk_size < a->size + b->size)
 	{
-		chunk_min = chunk_size * chunk_current;
-		chunk_max = chunk_min + chunk_size;
-		if (chunk_max > total_size)
-    		chunk_max = total_size;
-		items_pushed = 0;
-		while (items_pushed < chunk_max - chunk_min)
+		limit = (chunk + 1) * chunk_size;
+		if (limit > a->size + b->size)
+			limit = a->size + b->size;
+		pushed = 0;
+		while (pushed < limit - chunk * chunk_size)
 		{
-			if(stack_a->head->data >= chunk_min && stack_a->head->data < chunk_max)
+			if (a->head->data >= chunk * chunk_size && a->head->data < limit)
 			{
-				ft_push(stack_b, stack_a);
-				items_pushed++;
+				ft_push(b, a);
+				pushed++;
 			}
 			else
-				ft_rotate(stack_a);
+				ft_rotate(a);
 		}
-		chunk_current++;
+		chunk++;
 	}
 }
-
 
 
 void	ft_sort(t_stack	*stack_a, t_stack	*stack_b)
