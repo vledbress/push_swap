@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/30 19:23:35 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:30:20 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,17 @@ int main(int argc, char **argv)
 		ft_push_bottom(stack_a, ft_new_node(arr[i]));
 	
 		
-	ft_putstr(1, "Stack A: ");
-	show_stack(stack_a);
-	ft_putstr(1, "Stack B: ");
-	show_stack(stack_b);
+	// ft_putstr(1, "Stack A: ");
+	// show_stack(stack_a);
+	// ft_putstr(1, "Stack B: ");
+	// show_stack(stack_b);
 
 	ft_sort(stack_a, stack_b);
 	
-	ft_putstr(1, "Stack A: ");
-	show_stack(stack_a);
-	ft_putstr(1, "Stack B: ");
-	show_stack(stack_b);
+	// ft_putstr(1, "Stack A: ");
+	// show_stack(stack_a);
+	// ft_putstr(1, "Stack B: ");
+	// show_stack(stack_b);
 	
 
 
