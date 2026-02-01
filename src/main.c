@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/01 13:00:47 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/01 16:30:05 by vblxssv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "normalize.h"
 #include "sort_utils.h"
 #include <time.h>
+#include <stdio.h>
 
 void	show_stack(t_stack	*stack)
 {
@@ -70,32 +71,12 @@ int main(int argc, char **argv)
 	
 	for(int i = 0; i < len; ++i)
 		ft_push_bottom(stack_a, ft_new_node(arr[i]));
-	
-		
-	// ft_putstr(1, "Stack A: ");
-	// show_stack(stack_a);
-	// ft_putstr(1, "Stack B: ");
-	// show_stack(stack_b);
+
 
 	ft_sort(stack_a, stack_b);
 	
 	
-	show_stack(stack_a);
-	// ft_putstr(1, "Stack A: ");
-	// show_stack(stack_a);
-	// ft_putstr(1, "Stack B: ");
-	// show_stack(stack_b);
-	
 
-
-
-	// ft_putstr(1, "Chunk size for ");
-	// ft_putnbr(len);
-	// ft_putstr(1, " total size = ");
-	// ft_putnbr(ft_calculate_chunk(len));
-	// ft_putchar(1, '\n');
-	
-	
 	ft_destroy_stack(stack_a);
 	ft_destroy_stack(stack_b);
 	free(arr);
