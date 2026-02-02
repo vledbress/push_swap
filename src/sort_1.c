@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/02 14:01:05 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/02 14:42:27 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,32 +200,76 @@ static int	ft_find_max(t_stack *stack)
 }
 
 
+// static void ft_move_chunks_b(t_stack *a, t_stack *b)
+// {
+// 	int chunk_size = ft_calculate_chunk(a->size);
+// 	int start = 0;
+// 	int end, mid;
+
+// 	while (a->size)
+// 	{
+// 		end = start + chunk_size;
+// 		mid = start + chunk_size / 2;
+
+// 		while (has_in_chunk(a, start, end))
+// 		{
+// 			if (a->head->data >= start && a->head->data < end)
+// 			{
+// 				ft_push(b, a); ft_putstr(1, "pb\n");
+// 				if (b->head->data < mid) { ft_rotate(b); ft_putstr(1, "rb\n"); }
+// 			}
+// 			else
+// 			{
+// 				ft_rotate(a); ft_putstr(1, "ra\n");
+// 			}
+// 		}
+// 		start += chunk_size;
+// 	}
+// }
+
 static void ft_move_chunks_b(t_stack *a, t_stack *b)
 {
-	int chunk_size = ft_calculate_chunk(a->size);
-	int start = 0;
-	int end, mid;
+    int remaining = a->size - 5;        // элементы, которые будем пушить в b
+    int start = 0;
+    int end, mid;
+    int chunk_size;
 
-	while (a->size)
-	{
-		end = start + chunk_size;
-		mid = start + chunk_size / 2;
+    while (a->size > 5)
+    {
+        chunk_size = ft_calculate_chunk(remaining); // считаем чанки от оставшегося
+        end = start + chunk_size;
+        mid = start + chunk_size / 2;
 
-		while (has_in_chunk(a, start, end))
-		{
-			if (a->head->data >= start && a->head->data < end)
-			{
-				ft_push(b, a); ft_putstr(1, "pb\n");
-				if (b->head->data < mid) { ft_rotate(b); ft_putstr(1, "rb\n"); }
-			}
-			else
-			{
-				ft_rotate(a); ft_putstr(1, "ra\n");
-			}
-		}
-		start += chunk_size;
-	}
+        // пока есть элементы в текущем чанке и их > 5
+        while (has_in_chunk(a, start, end) && a->size > 5)
+        {
+            if (a->head->data >= start && a->head->data < end)
+            {
+                ft_push(b, a); 
+                ft_putstr(1, "pb\n");
+
+                if (b->head->data < mid)
+                {
+                    ft_rotate(b); 
+                    ft_putstr(1, "rb\n");
+                }
+            }
+            else
+            {
+                ft_rotate(a); 
+                ft_putstr(1, "ra\n");
+            }
+        }
+
+        start += chunk_size;
+        remaining = a->size - 5; // пересчитываем оставшиеся для следующего чанка
+    }
+
+    // Сортируем последние 5 элементов в a
+    if (a->size == 5)
+        ft_sort_5(a, b);
 }
+
 
 static void	ft_move_chunks_a(t_stack *a, t_stack *b)
 {

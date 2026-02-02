@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/02 13:53:31 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/02 14:44:53 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,13 @@ int main(int argc, char **argv)
 	if (argc == 1)
 		exit(-1);
 
-
+	int len = ft_atol(argv[1]);
 	t_stack	*stack_a = ft_new_stack();
 	t_stack	*stack_b = ft_new_stack();
+	int	*arg = gen_rand_arr(len);
 	
-	for(int i = 1; i < argc; ++i)
-		ft_push_bottom(stack_a, ft_new_node(ft_atol(argv[i])));
+	for(int i = 0; i < len; ++i)
+		ft_push_bottom(stack_a, ft_new_node(arg[i]));
 
 
 	ft_sort(stack_a, stack_b);
@@ -79,5 +80,5 @@ int main(int argc, char **argv)
 
 	ft_destroy_stack(stack_a);
 	ft_destroy_stack(stack_b);
-
+	free(arg);
 }
