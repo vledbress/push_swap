@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/31 17:15:01 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/02 14:01:05 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,32 +43,32 @@ void	ft_sort_3(t_stack	*stack)
 	if (first > middle && middle < last && first < last)
 	{
 		ft_swap_stack(stack);
-		ft_putstr(1, "s\n");
+		ft_putstr(1, "sa\n");
 	}
 	else if (first > middle && middle > last)
 	{
 		ft_swap_stack(stack);
-		ft_putstr(1, "s\n");
+		ft_putstr(1, "sa\n");
 		ft_rev_rotate(stack);
-		ft_putstr(1, "rr\n");
+		ft_putstr(1, "rra\n");
 		
 	}
 	else if (first > middle && middle < last && first > last)
 	{
 		ft_rotate(stack);
-		ft_putstr(1, "r\n");
+		ft_putstr(1, "ra\n");
 	}
 	else if (first < middle && middle > last && first < last)
 	{
 		ft_swap_stack(stack);
-		ft_putstr(1, "s\n");
+		ft_putstr(1, "sa\n");
 		ft_rotate(stack);
-		ft_putstr(1, "r\n");
+		ft_putstr(1, "ra\n");
 	}
 	else if (first < middle && middle > last && first > last)
 	{
 		ft_rev_rotate(stack);
-		ft_putstr(1, "rr\n");
+		ft_putstr(1, "rra\n");
 	}
 }
 
@@ -97,42 +97,52 @@ static int	ft_find_min(t_stack *stack)
 	}
 	return (min_index);
 }
-
-void	ft_sort_5(t_stack	*stack_a, t_stack	*stack_b)
+void	ft_sort_5(t_stack *stack_a, t_stack *stack_b)
 {
 	int	index;
 
 	if (!stack_a || !stack_b)
 		return ;
+	
+	// Убираем минимальные элементы, пока не останется 3
 	while (stack_a->size > 3)
-	{	
+	{
 		index = ft_find_min(stack_a);
 		if (index <= stack_a->size / 2)
+		{
+			// Вращаем вверх
 			while (index--)
 			{
 				ft_rotate(stack_a);
 				ft_putstr(1, "ra\n");
 			}
+		}
 		else
 		{
-			while (index++ < stack_a->size)
+			// Вращаем вниз
+			int rotations = stack_a->size - index;
+			while (rotations--)
 			{
 				ft_rev_rotate(stack_a);
 				ft_putstr(1, "rra\n");
 			}
+		}
+		// Отправляем минимальный элемент в стек B
 		ft_push(stack_b, stack_a);
 		ft_putstr(1, "pb\n");
-		
-		}
 	}
+
+	// Сортируем оставшиеся 3 элемента в стеке A
 	ft_sort_3(stack_a);
+
+	// Возвращаем элементы из B в A
 	while (stack_b->size)
 	{
 		ft_push(stack_a, stack_b);
 		ft_putstr(1, "pa\n");
-		
 	}
 }
+
 
 int	ft_calculate_chunk(int	total_size)
 {
