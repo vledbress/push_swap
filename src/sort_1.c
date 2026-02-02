@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/02 16:06:25 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/02 17:50:42 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,125 +173,84 @@ static int	has_in_chunk(t_stack *a, int start, int end)
 
 // ----------------- поиск 
 
-// static int	ft_find_max(t_stack *stack)
-// {
-// 	int		index;
-// 	int		max_index;
-// 	t_node	*current;
-// 	int		max;
-
-// 	if (!stack || !stack->head)
-// 		return (-1);
-// 	current = stack->head;
-// 	max = current->data;
-// 	max_index = 0;
-// 	index = 0;
-// 	while (current)
-// 	{
-// 		if (current->data > max)
-// 		{
-// 			max = current->data;
-// 			max_index = index;
-// 		}
-// 		current = current->next;
-// 		index++;
-// 	}
-// 	return (max_index);
-// }
-
-
-// static void ft_move_chunks_b(t_stack *a, t_stack *b)
-// {
-// 	int chunk_size = ft_calculate_chunk(a->size);
-// 	int start = 0;
-// 	int end, mid;
-
-// 	while (a->size)
-// 	{
-// 		end = start + chunk_size;
-// 		mid = start + chunk_size / 2;
-
-// 		while (has_in_chunk(a, start, end))
-// 		{
-// 			if (a->head->data >= start && a->head->data < end)
-// 			{
-// 				ft_push(b, a); ft_putstr(1, "pb\n");
-// 				if (b->head->data < mid) { ft_rotate(b); ft_putstr(1, "rb\n"); }
-// 			}
-// 			else
-// 			{
-// 				ft_rotate(a); ft_putstr(1, "ra\n");
-// 			}
-// 		}
-// 		start += chunk_size;
-// 	}
-// }
-
-static void ft_move_chunks_b(t_stack *a, t_stack *b)
+static int	ft_find_max(t_stack *stack)
 {
-    int remaining = a->size - 5;        // элементы, которые будем пушить в b
-    int start = 0;
-    int end, mid;
-    int chunk_size;
+	int		index;
+	int		max_index;
+	t_node	*current;
+	int		max;
 
-    while (a->size > 5)
-    {
-        chunk_size = ft_calculate_chunk(remaining); // считаем чанки от оставшегося
-        end = start + chunk_size;
-        mid = start + chunk_size / 2;
-
-        // пока есть элементы в текущем чанке и их > 5
-        while (has_in_chunk(a, start, end) && a->size > 5)
-        {
-            if (a->head->data >= start && a->head->data < end)
-            {
-                ft_push(b, a); 
-                ft_putstr(1, "pb\n");
-
-                if (b->head->data < mid)
-                {
-                    ft_rotate(b); 
-                    ft_putstr(1, "rb\n");
-                }
-            }
-            else
-            {
-                ft_rotate(a); 
-                ft_putstr(1, "ra\n");
-            }
-        }
-
-        start += chunk_size;
-        remaining = a->size - 5; // пересчитываем оставшиеся для следующего чанка
-    }
-    ft_sort_5(a, b);
+	if (!stack || !stack->head)
+		return (-1);
+	current = stack->head;
+	max = current->data;
+	max_index = 0;
+	index = 0;
+	while (current)
+	{
+		if (current->data > max)
+		{
+			max = current->data;
+			max_index = index;
+		}
+		current = current->next;
+		index++;
+	}
+	return (max_index);
 }
 
 
-// static void	ft_move_chunks_a(t_stack *a, t_stack *b)
-// {
-// 	int	max_pos;
+static void ft_move_chunks_b(t_stack *a, t_stack *b)
+{
+	int chunk_size = ft_calculate_chunk(a->size);
+	int start = 0;
+	int end, mid;
 
-// 	while (b->size)
-// 	{
-// 		max_pos = ft_find_max(b);
-// 		if (max_pos <= b->size / 2)
-// 			while (max_pos--)
-// 			{
-// 				ft_rotate(b);
-// 				ft_putstr(1, "rb\n");
-// 			}	
-// 		else
-// 			while (max_pos++ < b->size)
-// 			{
-// 				ft_putstr(1, "rrb\n");
-// 				ft_rev_rotate(b);
-// 			}
-// 		ft_push(a, b);
-// 		ft_putstr(1, "pa\n");
+	while (a->size)
+	{
+		end = start + chunk_size;
+		mid = start + chunk_size / 2;
+
+		while (has_in_chunk(a, start, end))
+		{
+			if (a->head->data >= start && a->head->data < end)
+			{
+				ft_push(b, a); ft_putstr(1, "pb\n");
+				if (b->head->data < mid) { ft_rotate(b); ft_putstr(1, "rb\n"); }
+			}
+			else
+			{
+				ft_rotate(a); ft_putstr(1, "ra\n");
+			}
+		}
+		start += chunk_size;
+	}
+}
+
+static void	ft_move_chunks_a(t_stack *a, t_stack *b)
+{
+	int	max_pos;
+
+	while (b->size)
+	{
+		max_pos = ft_find_max(b);
+		if (max_pos <= b->size / 2)
+			while (max_pos--)
+			{
+				ft_rotate(b);
+				ft_putstr(1, "rb\n");
+			}	
+		else
+			while (max_pos++ < b->size)
+			{
+				ft_putstr(1, "rrb\n");
+				ft_rev_rotate(b);
+			}
+		ft_push(a, b);
+		ft_putstr(1, "pa\n");
 		
-// 	}
-// }
+	}
+}
 
 
 void	ft_sort(t_stack	*stack_a, t_stack	*stack_b)
@@ -305,5 +264,5 @@ void	ft_sort(t_stack	*stack_a, t_stack	*stack_b)
 	if (stack_a->size < 6)
 		return (ft_sort_5(stack_a, stack_b), (void)0);
 	ft_move_chunks_b(stack_a, stack_b);
-	//ft_move_chunks_a(stack_a, stack_b);
+	ft_move_chunks_a(stack_a, stack_b);
 }
