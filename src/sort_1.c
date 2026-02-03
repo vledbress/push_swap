@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 02:50:44 by vblxssv          ###   ########.fr       */
+/*   Updated: 2026/02/03 04:38:33 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,18 +124,18 @@ int	ft_calculate_chunk(int	total_size)
 
 
 
-static int	has_in_chunk(t_stack *a, int start, int end)
-{
-	t_node	*cur = a->head;
+// static int	has_in_chunk(t_stack *a, int start, int end)
+// {
+// 	t_node	*cur = a->head;
 
-	while (cur)
-	{
-		if (cur->data >= start && cur->data < end)
-			return (1);
-		cur = cur->next;
-	}
-	return (0);
-}
+// 	while (cur)
+// 	{
+// 		if (cur->data >= start && cur->data < end)
+// 			return (1);
+// 		cur = cur->next;
+// 	}
+// 	return (0);
+// }
 
 
 static int	ft_find_max(t_stack *stack)
@@ -165,30 +165,60 @@ static int	ft_find_max(t_stack *stack)
 }
 
 
+// static void ft_move_chunks_b(t_stack *a, t_stack *b)
+// {
+// 	int chunk_size = ft_calculate_chunk(a->size);
+// 	int start = 0;
+// 	int end, mid;
+
+// 	while (a->size)
+// 	{
+// 		end = start + chunk_size;
+// 		mid = start + chunk_size / 2;
+
+// 		while (has_in_chunk(a, start, end))
+// 		{
+// 			if (a->head->data >= start && a->head->data < end)
+// 			{
+// 				ft_p(a, b, "pb\n");
+// 				if (b->head->data < mid)
+// 					ft_r(b, "rb\n");
+// 			}
+// 			else
+// 				ft_r(a, "ra\n");
+// 		}
+// 		start += chunk_size;
+// 	}
+// }
+
+
+
 static void ft_move_chunks_b(t_stack *a, t_stack *b)
 {
-	int chunk_size = ft_calculate_chunk(a->size);
-	int start = 0;
-	int end, mid;
+    int i = 0;
+    // Оптимальное смещение для 500 элементов: 30-35
+    // Для 100 элементов: 13-15
+    int range = (a->size <= 100) ? 15 : 32;
 
-	while (a->size)
-	{
-		end = start + chunk_size;
-		mid = start + chunk_size / 2;
-
-		while (has_in_chunk(a, start, end))
-		{
-			if (a->head->data >= start && a->head->data < end)
-			{
-				ft_p(a, b, "pb\n");
-				if (b->head->data < mid)
-					ft_r(b, "rb\n");
-			}
-			else
-				ft_r(a, "ra\n");
-		}
-		start += chunk_size;
-	}
+    while (a->size > 0)
+    {
+        // Если число меньше текущего индекса — оно уходит в нижнюю часть B
+        if (a->head->data <= i)
+        {
+            ft_p(a, b, "pb\n");
+            ft_r(b, "rb\n");
+            i++;
+        }
+        // Если число входит в "окно" — оно просто уходит в B (сверху)
+        else if (a->head->data <= i + range)
+        {
+            ft_p(a, b, "pb\n");
+            i++;
+        }
+        // Если число слишком большое для текущего окна — крутим A
+        else
+            ft_r(a, "ra\n");
+    }
 }
 
 static void	ft_move_chunks_a(t_stack *a, t_stack *b)
