@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.h                                       :+:      :+:    :+:   */
+/*   sort_move.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 01:19:30 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 19:23:08 by vborysov         ###   ########.fr       */
+/*   Created: 2026/02/03 19:11:53 by vborysov          #+#    #+#             */
+/*   Updated: 2026/02/03 19:17:52 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORT_UTILS_H
-# define SORT_UTILS_H
+#ifndef SORT_MOVE_H
+# define SORT_MOVE_H
+
 # include "stack.h"
 
-void	ft_sort(t_stack	*stack_a, t_stack	*stack_b);
+void	ft_move_chunks_b(t_stack *a, t_stack *b);
+void	ft_move_chunks_a(t_stack *a, t_stack *b);
 
 #endif
