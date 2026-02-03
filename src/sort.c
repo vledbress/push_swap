@@ -6,11 +6,11 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 19:23:26 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 19:32:55 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort_utils.h"
+#include "sort.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include "sort_move.h"

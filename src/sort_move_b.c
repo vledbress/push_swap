@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:10:57 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 19:25:20 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 19:36:39 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_move_chunks_b(t_stack *a, t_stack *b)
 
 	i = 0;
 	range = ft_calculate_chunk(a->size);
-	while (a->size > 0)
+	while (a->size)
 	{
 		if (a->head->data <= i)
 		{
