@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:26:29 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 02:40:38 by vblxssv          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:32:00 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
-#define STACK_H
+# define STACK_H
 
-typedef	struct	s_node
+typedef struct s_node
 {
-	int	data;
+	int				data;
 	struct s_node	*prev;
 	struct s_node	*next;
 }				t_node;
@@ -23,7 +23,7 @@ typedef	struct	s_node
 t_node	*ft_new_node(int data);
 void	ft_destroy_node(t_node	*node);
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	t_node	*head;
 	t_node	*tail;
@@ -45,7 +45,6 @@ void	ft_rotate(t_stack	*stack);
 void	ft_r_rotate(t_stack	*stack_a, t_stack	*stack_b);
 void	ft_rev_rotate(t_stack	*stack);
 void	ft_r_rev_rotate(t_stack	*stack_a, t_stack	*stack_b);
-
 
 void	ft_s(t_stack	*stack, const char	*str);
 void	ft_p(t_stack	*source, t_stack *destination, const char	*str);

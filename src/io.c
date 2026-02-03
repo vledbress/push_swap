@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   io.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/03 17:36:29 by vborysov          #+#    #+#             */
+/*   Updated: 2026/02/03 17:36:44 by vborysov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "io.h"
 
 void	ft_putchar(int fd, char c)
@@ -15,7 +27,7 @@ void	ft_putstr(int fd, const char *str)
 
 void	ft_putnbr(int num)
 {
-	long n;
+	long	n;
 
 	n = num;
 	if (n < 0)
@@ -27,4 +39,3 @@ void	ft_putnbr(int num)
 		ft_putnbr(n / 10);
 	ft_putchar(1, (n % 10) + '0');
 }
-

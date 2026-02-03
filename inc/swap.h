@@ -6,12 +6,12 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 18:15:48 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/25 18:16:20 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 17:32:32 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SWAP_H
-#define SWAP_H
+# define SWAP_H
 
 void	ft_swap(int	*a, int	*b);
 

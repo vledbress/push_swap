@@ -3,27 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:51:12 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/28 19:55:51 by vblxssv          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:36:01 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error.h"
 #include <limits.h>
 
-
-
 void	ft_error(void)
 {
 	ft_putstr(2, "Error\n");
 	exit(1);
 }
+
 void	ft_check_valid_number(char	*str)
 {
 	long	val;
-	
+
 	if (!str || !*str)
 		ft_error();
 	val = ft_atol(str);
@@ -41,13 +40,13 @@ void	ft_check_valid_number(char	*str)
 	}
 }
 
-void ft_check_dups(int ac, char **av)
+void	ft_check_dups(int ac, char	**av)
 {
 	int		i;
 	int		j;
 	long	val_i;
 	long	val_j;
-	
+
 	i = 1;
 	while (i < ac)
 	{
@@ -62,7 +61,6 @@ void ft_check_dups(int ac, char **av)
 		}
 		i++;
 	}
-    
 }
 
 void	ft_check_nums(int ac, char	**av)

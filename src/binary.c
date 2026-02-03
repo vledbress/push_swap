@@ -6,14 +6,14 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 18:06:06 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/25 18:20:57 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 17:35:08 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "binary.h"
 #include "swap.h"
 
-static int		ft_partition(int	*arr, int start, int end)
+static int	ft_partition(int	*arr, int start, int end)
 {
 	int	pivot;
 	int	i;
@@ -38,7 +38,7 @@ static int		ft_partition(int	*arr, int start, int end)
 void	ft_quick_sort(int	*arr, int start, int end)
 {
 	int	pi;
-	
+
 	if (start < end)
 	{
 		pi = ft_partition(arr, start, end);
@@ -47,7 +47,7 @@ void	ft_quick_sort(int	*arr, int start, int end)
 	}
 }
 
-int		ft_binary_search(int	*arr, int len, int element)
+int	ft_binary_search(int	*arr, int len, int element)
 {
 	int	start;
 	int	end;
@@ -59,12 +59,11 @@ int		ft_binary_search(int	*arr, int len, int element)
 	{
 		middle = start + (end - start) / 2;
 		if (arr[middle] == element)
-			return (middle);  
+			return (middle);
 		else if (arr[middle] > element)
-			end = middle - 1; 
+			end = middle - 1;
 		else
-			start = middle + 1; 
+			start = middle + 1;
 	}
 	return (-1);
 }
-
