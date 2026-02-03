@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_basic.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/03 17:48:09 by vborysov          #+#    #+#             */
+/*   Updated: 2026/02/03 17:53:40 by vborysov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "stack.h"
 #include <stdlib.h>
 
 t_stack	*ft_new_stack(void)
 {
-	t_stack	*new_stack = (t_stack	*)malloc(sizeof(t_stack));
+	t_stack	*new_stack;
+
+	new_stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_stack)
 		return (NULL);
 	new_stack->head = NULL;
@@ -12,19 +26,19 @@ t_stack	*ft_new_stack(void)
 	return (new_stack);
 }
 
-void ft_destroy_stack(t_stack *stack)
+void	ft_destroy_stack(t_stack	*stack)
 {
-    t_node	*tmp;
+	t_node	*tmp;
 
-    if (!stack)
-        return ;
-    while (stack->head)
-    {
-        tmp = stack->head;
-        stack->head = stack->head->next;
-        ft_destroy_node(tmp);
-    }
-    free(stack);
+	if (!stack)
+		return ;
+	while (stack->head)
+	{
+		tmp = stack->head;
+		stack->head = stack->head->next;
+		ft_destroy_node(tmp);
+	}
+	free(stack);
 }
 
 void	ft_push_top(t_stack	*stack, t_node	*node)
@@ -38,7 +52,7 @@ void	ft_push_top(t_stack	*stack, t_node	*node)
 	else
 		stack->tail = node;
 	stack->head = node;
-    stack->size++;
+	stack->size++;
 }
 
 void	ft_push_bottom(t_stack	*stack, t_node	*node)
@@ -55,39 +69,38 @@ void	ft_push_bottom(t_stack	*stack, t_node	*node)
 	stack->size++;
 }
 
-t_node *ft_pop_top(t_stack *stack)
+t_node	*ft_pop_top(t_stack *stack)
 {
-    t_node	*head;
+	t_node	*head;
 
-    if (!stack || !stack->head)
-        return (NULL);
-    head = stack->head;           
-    stack->head = head->next;     
-    if (stack->head)              
-        stack->head->prev = NULL;
-    else                           
-        stack->tail = NULL;
-    head->next = NULL;            
-    head->prev = NULL;
-    stack->size--;
-    return (head);
+	if (!stack || !stack->head)
+		return (NULL);
+	head = stack->head;
+	stack->head = head->next;
+	if (stack->head)
+		stack->head->prev = NULL;
+	else
+		stack->tail = NULL;
+	head->next = NULL;
+	head->prev = NULL;
+	stack->size--;
+	return (head);
 }
 
-t_node *ft_pop_bottom(t_stack *stack)
+t_node	*ft_pop_bottom(t_stack	*stack)
 {
-    t_node	*tail;
+	t_node	*tail;
 
-    if (!stack || !stack->tail)
-        return (NULL);
-    tail = stack->tail;           
-    stack->tail = tail->prev;     
-    if (stack->tail)              
-        stack->tail->next = NULL;
-    else                          
-        stack->head = NULL;
-    tail->next = NULL;            
-    tail->prev = NULL;
-    stack->size--;
-    return (tail);                  
+	if (!stack || !stack->tail)
+		return (NULL);
+	tail = stack->tail;
+	stack->tail = tail->prev;
+	if (stack->tail)
+		stack->tail->next = NULL;
+	else
+		stack->head = NULL;
+	tail->next = NULL;
+	tail->prev = NULL;
+	stack->size--;
+	return (tail);
 }
-

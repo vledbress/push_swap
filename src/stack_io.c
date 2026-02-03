@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_io_1.c                                       :+:      :+:    :+:   */
+/*   stack_io.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 02:33:02 by vblxssv           #+#    #+#             */
-/*   Updated: 2026/02/03 02:40:51 by vblxssv          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:58:47 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 
 void	ft_s(t_stack	*stack, const	char	*str)
 {
-    ft_swap_stack(stack);
-    ft_putstr(1, str);
+	ft_swap_stack(stack);
+	ft_putstr(1, str);
 }
 
 void	ft_p(t_stack	*source, t_stack *destination, const char	*str)
 {
-    ft_push(destination, source);
-    ft_putstr(1, str);
+	ft_push(destination, source);
+	ft_putstr(1, str);
 }
 
 void	ft_r(t_stack	*stack, const char	*str)
 {
-    ft_rotate(stack);
-    ft_putstr(1, str);
+	ft_rotate(stack);
+	ft_putstr(1, str);
 }
 
 void	ft_rr(t_stack	*stack, const char	*str)
 {
-    ft_rev_rotate(stack);
-    ft_putstr(1, str);
+	ft_rev_rotate(stack);
+	ft_putstr(1, str);
 }

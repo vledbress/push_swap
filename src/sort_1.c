@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 17:46:20 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:07:13 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,7 @@ void	ft_sort(t_stack	*stack_a, t_stack	*stack_b)
 	if (!stack_a || !stack_b || stack_a->size < 2 || ft_is_sorted(stack_a))
 		return ;
 	if (stack_a->size == 2)
-		return (ft_swap_stack(stack_a), (void)0);
+		return (ft_s(stack_a, "sa\n"), (void)0);
 	if (stack_a->size == 3)
 		return (ft_sort_3(stack_a), (void)0);
 	if (stack_a->size < 6)

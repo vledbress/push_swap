@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations_1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:42:16 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 02:28:36 by vblxssv          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:57:20 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_swap_stack(t_stack	*stack)
 	first = ft_pop_top(stack);
 	second = ft_pop_top(stack);
 	ft_push_top(stack, first);
-	ft_push_top(stack, second);       
+	ft_push_top(stack, second);
 }
 
 void	ft_s_swap_stack(t_stack	*stack_a, t_stack	*stack_b)
@@ -39,7 +39,7 @@ void	ft_push(t_stack	*stack_a, t_stack *stack_b)
 	ft_push_top(stack_a, ft_pop_top(stack_b));
 }
 
-void ft_rotate(t_stack *stack)
+void	ft_rotate(t_stack	*stack)
 {
 	if (!stack || stack->size < 2)
 		return ;
@@ -51,4 +51,3 @@ void	ft_r_rotate(t_stack	*stack_a, t_stack	*stack_b)
 	ft_rotate(stack_a);
 	ft_rotate(stack_b);
 }
-
