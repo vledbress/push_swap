@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:36:29 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 17:36:44 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 19:27:02 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,4 @@ void	ft_putstr(int fd, const char *str)
 		return ;
 	while (*str)
 		ft_putchar(fd, *str++);
-}
-
-void	ft_putnbr(int num)
-{
-	long	n;
-
-	n = num;
-	if (n < 0)
-	{
-		ft_putchar(1, '-');
-		n = -n;
-	}
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	ft_putchar(1, (n % 10) + '0');
 }
