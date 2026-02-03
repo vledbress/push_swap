@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/02 17:50:42 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:50:44 by vblxssv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort_utils.h"
 #include <stdlib.h>
-#include "io.h"
 #include <stdio.h>
+
 
 int ft_is_sorted(t_stack *stack)
 {
@@ -41,35 +41,21 @@ void	ft_sort_3(t_stack	*stack)
 	middle = stack->head->next->data;
 	last = stack->head->next->next->data;
 	if (first > middle && middle < last && first < last)
-	{
-		ft_swap_stack(stack);
-		ft_putstr(1, "sa\n");
-	}
+		ft_s(stack, "sa\n");
 	else if (first > middle && middle > last)
 	{
-		ft_swap_stack(stack);
-		ft_putstr(1, "sa\n");
-		ft_rev_rotate(stack);
-		ft_putstr(1, "rra\n");
-		
+		ft_s(stack, "sa\n");
+		ft_rr(stack, "rra\n");
 	}
 	else if (first > middle && middle < last && first > last)
-	{
-		ft_rotate(stack);
-		ft_putstr(1, "ra\n");
-	}
+		ft_r(stack, "ra\n");
 	else if (first < middle && middle > last && first < last)
 	{
-		ft_swap_stack(stack);
-		ft_putstr(1, "sa\n");
-		ft_rotate(stack);
-		ft_putstr(1, "ra\n");
+		ft_s(stack, "sa\n");
+		ft_r(stack, "ra\n");
 	}
 	else if (first < middle && middle > last && first > last)
-	{
-		ft_rev_rotate(stack);
-		ft_putstr(1, "rra\n");
-	}
+		ft_rr(stack, "rra\n");
 }
 
 static int	ft_find_min(t_stack *stack)
@@ -103,44 +89,23 @@ void	ft_sort_5(t_stack *stack_a, t_stack *stack_b)
 
 	if (!stack_a || !stack_b)
 		return ;
-	
-	// Убираем минимальные элементы, пока не останется 3
 	while (stack_a->size > 3)
 	{
 		index = ft_find_min(stack_a);
 		if (index <= stack_a->size / 2)
-		{
-			// Вращаем вверх
 			while (index--)
-			{
-				ft_rotate(stack_a);
-				ft_putstr(1, "ra\n");
-			}
-		}
+				ft_r(stack_a, "ra\n");
 		else
 		{
-			// Вращаем вниз
 			int rotations = stack_a->size - index;
 			while (rotations--)
-			{
-				ft_rev_rotate(stack_a);
-				ft_putstr(1, "rra\n");
-			}
+				ft_rr(stack_a, "rra\n");
 		}
-		// Отправляем минимальный элемент в стек B
-		ft_push(stack_b, stack_a);
-		ft_putstr(1, "pb\n");
+		ft_p(stack_a, stack_b, "pb\n");
 	}
-
-	// Сортируем оставшиеся 3 элемента в стеке A
 	ft_sort_3(stack_a);
-
-	// Возвращаем элементы из B в A
 	while (stack_b->size)
-	{
-		ft_push(stack_a, stack_b);
-		ft_putstr(1, "pa\n");
-	}
+		ft_p(stack_b, stack_a, "pa\n");
 }
 
 
@@ -157,6 +122,8 @@ int	ft_calculate_chunk(int	total_size)
 	return (chunk_size);
 }
 
+
+
 static int	has_in_chunk(t_stack *a, int start, int end)
 {
 	t_node	*cur = a->head;
@@ -170,8 +137,6 @@ static int	has_in_chunk(t_stack *a, int start, int end)
 	return (0);
 }
 
-
-// ----------------- поиск 
 
 static int	ft_find_max(t_stack *stack)
 {
@@ -215,13 +180,12 @@ static void ft_move_chunks_b(t_stack *a, t_stack *b)
 		{
 			if (a->head->data >= start && a->head->data < end)
 			{
-				ft_push(b, a); ft_putstr(1, "pb\n");
-				if (b->head->data < mid) { ft_rotate(b); ft_putstr(1, "rb\n"); }
+				ft_p(a, b, "pb\n");
+				if (b->head->data < mid)
+					ft_r(b, "rb\n");
 			}
 			else
-			{
-				ft_rotate(a); ft_putstr(1, "ra\n");
-			}
+				ft_r(a, "ra\n");
 		}
 		start += chunk_size;
 	}
@@ -236,22 +200,13 @@ static void	ft_move_chunks_a(t_stack *a, t_stack *b)
 		max_pos = ft_find_max(b);
 		if (max_pos <= b->size / 2)
 			while (max_pos--)
-			{
-				ft_rotate(b);
-				ft_putstr(1, "rb\n");
-			}	
+				ft_r(b, "rb\n");
 		else
 			while (max_pos++ < b->size)
-			{
-				ft_putstr(1, "rrb\n");
-				ft_rev_rotate(b);
-			}
-		ft_push(a, b);
-		ft_putstr(1, "pa\n");
-		
+				ft_rr(b, "rrb\n");
+		ft_p(b, a, "pa\n");
 	}
 }
-
 
 void	ft_sort(t_stack	*stack_a, t_stack	*stack_b)
 {

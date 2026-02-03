@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 13:20:23 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/20 13:55:52 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:28:45 by vblxssv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include <stdlib.h>
-
-// void	ft_rev_rotate(t_stack	*stack)
-// {
-// 	t_node	*last;
-// 	if (!stack || stack->size < 2)
-// 		return ;
-// 	last = ft_pop_bottom(stack);
-// 	ft_push_top(stack, last);
-// }
 
 void	ft_rev_rotate(t_stack	*stack)
 {

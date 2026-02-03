@@ -5,7 +5,7 @@ void	ft_putchar(int fd, char c)
 	write(fd, &c, 1);
 }
 
-void	ft_putstr(int fd, char *str)
+void	ft_putstr(int fd, const char *str)
 {
 	if (!str)
 		return ;

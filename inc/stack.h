@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:26:29 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/25 18:14:41 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:40:38 by vblxssv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,11 @@ void	ft_rotate(t_stack	*stack);
 void	ft_r_rotate(t_stack	*stack_a, t_stack	*stack_b);
 void	ft_rev_rotate(t_stack	*stack);
 void	ft_r_rev_rotate(t_stack	*stack_a, t_stack	*stack_b);
+
+
+void	ft_s(t_stack	*stack, const char	*str);
+void	ft_p(t_stack	*source, t_stack *destination, const char	*str);
+void	ft_r(t_stack	*stack, const char	*str);
+void	ft_rr(t_stack	*stack, const char	*str);
 
 #endif 

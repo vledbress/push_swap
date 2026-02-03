@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
+#    By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/01/30 01:28:21 by vborysov         ###   ########.fr        #
+#    Updated: 2026/02/03 02:41:12 by vblxssv          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS = main.c \
 	   binary.c \
 	   swap.c \
 	   normalize.c \
-	   sort_1.c
+	   sort_1.c \
+	   stack_io.c
 	   
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 

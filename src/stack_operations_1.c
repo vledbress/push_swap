@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations_1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 00:42:16 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/25 18:15:06 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:28:36 by vblxssv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,6 @@ void	ft_push(t_stack	*stack_a, t_stack *stack_b)
 		return ;
 	ft_push_top(stack_a, ft_pop_top(stack_b));
 }
-
-// void ft_rotate(t_stack *stack)
-// {
-// 	t_node	*first;
- 
-// 	if (!stack || stack->size < 2)
-// 		return ;
-// 	first = ft_pop_top(stack);
-// 	ft_push_bottom(stack, first);
-// }
 
 void ft_rotate(t_stack *stack)
 {

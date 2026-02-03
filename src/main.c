@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/02 15:01:22 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:50:49 by vblxssv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,6 @@ int	*gen_rand_arr(int	len)
 }
 
 
-int	ft_calculate_chunk(int	total_size);
-
-void	show_arr();
 
 int main(int argc, char **argv)
 {
@@ -80,7 +77,7 @@ int main(int argc, char **argv)
 	
 	
 	printf("Is sorted: %d\n", ft_is_sorted(stack_a));
-	show_stack(stack_a);
+
 
 	ft_destroy_stack(stack_a);
 	ft_destroy_stack(stack_b);

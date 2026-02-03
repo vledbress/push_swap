@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   io.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vblxssv <vblxssv@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:46:48 by vborysov          #+#    #+#             */
-/*   Updated: 2026/01/20 17:11:26 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:41:45 by vblxssv          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 void	ft_putchar(int fd, char c);
-void	ft_putstr(int fd, char *str);
+void	ft_putstr(int fd, const char *str);
 void	ft_putnbr(int	num);
 
 
