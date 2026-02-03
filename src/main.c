@@ -59,27 +59,52 @@ int	*gen_rand_arr(int	len)
 
 
 
+// int main(int argc, char **argv)
+// {
+// 	if (argc == 1)
+// 		exit(-1);
+
+// 	int len = ft_atol(argv[1]);
+// 	t_stack	*stack_a = ft_new_stack();
+// 	t_stack	*stack_b = ft_new_stack();
+// 	int	*arg = gen_rand_arr(len);
+	
+// 	for(int i = 0; i < len; ++i)
+// 		ft_push_bottom(stack_a, ft_new_node(arg[i]));
+
+
+// 	ft_sort(stack_a, stack_b);
+	
+	
+// 	printf("Is sorted: %d\n", ft_is_sorted(stack_a));
+
+
+// 	ft_destroy_stack(stack_a);
+// 	ft_destroy_stack(stack_b);
+// 	free(arg);
+// }
+
+
 int main(int argc, char **argv)
 {
 	if (argc == 1)
 		exit(-1);
 
-	int len = ft_atol(argv[1]);
+
 	t_stack	*stack_a = ft_new_stack();
 	t_stack	*stack_b = ft_new_stack();
-	int	*arg = gen_rand_arr(len);
+
 	
-	for(int i = 0; i < len; ++i)
-		ft_push_bottom(stack_a, ft_new_node(arg[i]));
+	for(int i = 1; i < argc; ++i)
+		ft_push_bottom(stack_a, ft_new_node(ft_atol(argv[i])));
 
 
 	ft_sort(stack_a, stack_b);
 	
 	
-	printf("Is sorted: %d\n", ft_is_sorted(stack_a));
+
 
 
 	ft_destroy_stack(stack_a);
 	ft_destroy_stack(stack_b);
-	free(arg);
 }
