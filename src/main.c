@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/04 20:06:02 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/04 20:16:29 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int	main(int argc, char	**argv)
 	ft_check_dups(argc, argv);
 	stack_a = ft_new_stack();
 	if (!stack_a)
-		return (1);
+		ft_error();
 	stack_b = ft_new_stack();
 	if (!stack_b)
-		return (ft_destroy_stack(stack_a), 1);
+		return (ft_destroy_stack(stack_a), ft_error(), 1);
 	if (!ft_init_stack(stack_a, argc, argv))
-		return (ft_destroy_stack(stack_b), 0);
+		return (ft_destroy_stack(stack_b), ft_error(), 1);
 	ft_sort(stack_a, stack_b);
 	ft_destroy_stack(stack_a);
 	ft_destroy_stack(stack_b);
