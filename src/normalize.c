@@ -6,13 +6,13 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 18:39:02 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 17:38:56 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/04 16:58:21 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "normalize.h"
 
-int	*ft_copy_arr(int ac, char	**av)
+static int	*ft_copy_arr(int ac, char	**av)
 {
 	int	*arr;
 	int	i;
@@ -29,17 +29,26 @@ int	*ft_copy_arr(int ac, char	**av)
 	return (arr);
 }
 
-void	ft_normalize_stack(t_stack	*stack, int	*sorted_arr)
+void	ft_init_stack(t_stack	*stack, int argc, char	**argv)
 {
-	t_node	*current;
+	int	*values;
+	int	*sorted;
+	int	index;
 
-	if (!stack || !sorted_arr)
+	values = ft_copy_arr(argc, argv);
+	if (!values)
 		return ;
-	current = stack->head;
-	while (current)
+	sorted = ft_copy_arr(argc, argv);
+	if (!sorted)
+		return (free(values), (void)(0));
+	ft_quick_sort(sorted, 0, argc - 2);
+	index = 0;
+	while (index < argc - 1)
 	{
-		current->data = ft_binary_search(sorted_arr,
-				stack->size, current->data);
-		current = current->next;
+		ft_push_bottom(stack, ft_new_node(ft_binary_search(sorted,
+					argc - 1, values[index])));
+		index++;
 	}
+	free(values);
+	free(sorted);
 }

@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 18:34:29 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 17:30:11 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/04 16:58:31 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "atol.h"
 # include "stack.h"
 
-int		*ft_copy_arr(int ac, char	**av);
-void	ft_normalize_stack(t_stack	*stack, int	*sorted_arr);
+void	ft_init_stack(t_stack	*stack, int argc, char	**argv);
 
 #endif
