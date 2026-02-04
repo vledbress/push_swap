@@ -6,43 +6,17 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/04 20:16:29 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:15:22 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "io.h"
 #include "stack.h"
 #include "error.h"
-#include "normalize.h"
 #include "sort.h"
 #include <time.h>
 #include <stdio.h>
 
-// void	ft_show_stack(t_stack	*stack)
-// {
-// 	for (t_node	*i = stack->head; i; i = i->next)
-// 		printf("%d ", i->data);
-// 	printf("\n");
-// }
-
-// int	*gen_rand_arr(int	size)
-// {
-// 	int	*arr = (int	*)malloc(sizeof(int) * size);
-// 	for (int i = 0; i < size; ++i)
-// 	{
-// 		arr[i] = i;
-// 	}
-// 	srand(time(NULL));
-//     for (int i = size - 1; i > 0; --i)
-//     {
-//         int j = rand() % (i + 1);
-//         int temp = arr[i];
-//         arr[i] = arr[j];
-//         arr[j] = temp;
-//     }
-
-// 	return (arr);
-// }
 int	main(int argc, char	**argv)
 {
 	t_stack	*stack_a;

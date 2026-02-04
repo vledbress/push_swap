@@ -6,7 +6,7 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/02/03 19:34:32 by vborysov         ###   ########.fr        #
+#    Updated: 2026/02/04 23:14:46 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,6 @@ SRCS = main.c \
 	   atol.c \
 	   binary.c \
 	   swap.c \
-	   normalize.c \
 	   sort.c \
 	   stack_io.c \
 	   sort_small.c \

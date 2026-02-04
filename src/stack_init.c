@@ -6,12 +6,14 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:21:01 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 19:22:08 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:15:51 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include <stdlib.h>
+#include "binary.h"
+#include "atol.h"
 
 t_stack	*ft_new_stack(void)
 {
@@ -21,7 +23,6 @@ t_stack	*ft_new_stack(void)
 	if (!new_stack)
 		return (NULL);
 	new_stack->head = NULL;
-	new_stack->tail = NULL;
 	new_stack->size = 0;
 	return (new_stack);
 }
@@ -39,4 +40,48 @@ void	ft_destroy_stack(t_stack	*stack)
 		ft_destroy_node(tmp);
 	}
 	free(stack);
+}
+
+static int	*ft_copy_arr(int ac, char	**av)
+{
+	int	*arr;
+	int	i;
+
+	arr = (int *)malloc(sizeof(int) * (ac - 1));
+	if (!arr)
+		return (NULL);
+	i = 1;
+	while (i < ac)
+	{
+		arr[i - 1] = ft_atol(av[i]);
+		i++;
+	}
+	return (arr);
+}
+
+int	ft_init_stack(t_stack	*stack, int argc, char	**argv)
+{
+	int		*values;
+	int		*sorted;
+	int		index;
+	t_node	*node;
+
+	values = ft_copy_arr(argc, argv);
+	if (!values)
+		return (0);
+	sorted = ft_copy_arr(argc, argv);
+	if (!sorted)
+		return (free(values), 0);
+	ft_quick_sort(sorted, 0, argc - 2);
+	index = 0;
+	while (index < argc - 1)
+	{
+		node = ft_new_node(ft_binary_search(sorted, argc - 1, values[index]));
+		if (!node)
+			return (ft_destroy_stack(stack), free(values),
+				free(sorted), 0);
+		ft_push_bottom(stack, node);
+		index++;
+	}
+	return (free(values), free(sorted), 1);
 }

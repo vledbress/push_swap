@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:37:09 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 17:37:41 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:01:56 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_node	*ft_new_node(int data)
 		return (NULL);
 	new_node->data = data;
 	new_node->next = NULL;
-	new_node->prev = NULL;
 	return (new_node);
 }
 
