@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/05 01:19:12 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/05 01:23:43 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int main(int argc, char **argv)
 	for (; args[len]; ++len);
 		
 	
-	
+	// === Check On normal nums (if contains only digits)===
 
-	
+
 	long *array_nums = (long *)malloc(sizeof(long) * len);
 	for (int i = 0; i < len; ++i)
 		array_nums[i] = ft_atol(args[i]);
