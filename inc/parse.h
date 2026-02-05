@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 14:51:12 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/05 17:15:50 by vborysov         ###   ########.fr       */
+/*   Created: 2026/02/05 17:12:47 by vborysov          #+#    #+#             */
+/*   Updated: 2026/02/05 17:26:00 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PARSE_H
+#define PARSE_H
+
 #include "error.h"
-#include <limits.h>
 
-void	ft_error(void)
-{
-	ft_putstr(2, "Error\n");
-	exit(1);
-}
+void	ft_parse_args(int argc, char	**argv, long	*raw, int	*len);
+void	ft_validate(long	*raw, int len);
 
-
+#endif

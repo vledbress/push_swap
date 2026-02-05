@@ -2,7 +2,7 @@
 
 
 NAME = libft.a
-CC = cc
+CC = gcc
 FLAGS = -Wall -Werror -Wextra
 
 

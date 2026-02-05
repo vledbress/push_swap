@@ -6,12 +6,11 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:25:11 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/04 23:57:36 by vborysov         ###   ########.fr       */
+/*   Updated: 2025/11/10 20:37:51 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static size_t	ft_count_words(const char *s, char delimeter)
 {
