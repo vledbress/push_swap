@@ -6,12 +6,12 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/02/04 23:14:46 by vborysov         ###   ########.fr        #
+#    Updated: 2026/02/05 01:03:58 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 
@@ -21,7 +21,7 @@ INC_DIR = inc
 
 
 NAME = push_swap
-
+LIBFT = libft/libft.a
 
 SRCS = main.c \
        io.c \
@@ -38,7 +38,7 @@ SRCS = main.c \
 	   sort_small.c \
 	   sort_move_b.c \
 	   sort_move_a.c \
-	   stack_init.c
+	   stack_init.c \
 	   
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 
@@ -53,7 +53,8 @@ all: $(NAME)
 
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	make -C libft
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
@@ -65,12 +66,12 @@ $(OBJ_DIR):
 
 
 clean:
+	make -C libft clean
 	rm -rf $(OBJ_DIR)
 
-
 fclean: clean
+	make -C libft fclean
 	rm -f $(NAME)
-
 
 re: fclean all
 
