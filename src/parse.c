@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 17:14:49 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/05 17:47:39 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/05 19:17:29 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,18 @@ static int	ft_count_tokens(char	**tokens)
 		len++;
 	return (len);
 }
+static void	ft_free_all(int need_free, char	**tokens)
+{
+	int	i;
+
+	if (!need_free)
+		return ;
+	i = 0;
+	while (tokens[i])
+		free(tokens[i++]);
+	free(tokens);
+}
+
 
 void ft_parse_args(int argc, char **argv, long **raw, int *len)
 {
@@ -57,12 +69,23 @@ void ft_parse_args(int argc, char **argv, long **raw, int *len)
 	int		i;
 
 	tokens = ft_get_tokens(argc, argv);
-
-
-
-
-	
-    if (need_free)
-        ft_free_split(tokens);
+	*len = ft_count_tokens(tokens);
+	*raw = malloc(sizeof(long) * (*len));
+	if (!*raw)
+		return (ft_free_all(argc == 2, tokens), ft_error());
+	i = 0;
+	while (i < *len)
+	{
+		if (!ft_is_number(tokens[i]))
+			return (free(*raw), ft_free_all(argc == 2, tokens), ft_error());
+		++i;
+	}
+	i = 0;
+	while (i < *len)
+	{
+		(*raw)[i] = ft_atol(tokens[i]);
+		++i;
+	}
+    ft_free_all(argc == 2, tokens);
 }
 

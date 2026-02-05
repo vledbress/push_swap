@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:47:56 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 17:28:14 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/05 19:18:34 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 
 void	ft_error(void);
 
-void	ft_check_nums(int ac, char	**av);
 
-void	ft_check_valid_number(char	*str);
-
-void	ft_check_dups(int ac, char	**av);
 
 #endif
