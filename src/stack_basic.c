@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:48:09 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 20:27:12 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:43:54 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,17 @@ t_stack	*ft_pop_bottom(t_stack	**stack)
 	if (prev)
 		prev->next = NULL;
 	return (curr);
+}
+
+int		ft_stack_size(t_stack *stack)
+{
+	int	size;
+
+	size = 0;
+	while (stack)
+	{
+		++size;
+		stack = stack->next;
+	}
+	return (size);
 }

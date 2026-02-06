@@ -6,7 +6,7 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/02/06 20:36:34 by vborysov         ###   ########.fr        #
+#    Updated: 2026/02/06 20:57:00 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,12 @@ SRCS = main.c \
 	   error.c \
 	   atol.c \
 	   binary.c \
-	   parse.c
+	   parse.c \
+	   sort.c \
+	   sort_small.c \
+	   sort_move_a.c \
+	   sort_move_b.c
+
 	   
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 

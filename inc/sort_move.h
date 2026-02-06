@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:11:53 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 19:17:52 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:57:24 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "stack.h"
 
-void	ft_move_chunks_b(t_stack *a, t_stack *b);
-void	ft_move_chunks_a(t_stack *a, t_stack *b);
+void	ft_move_chunks_b(t_stack **a, t_stack **b);
+void	ft_move_chunks_a(t_stack **a, t_stack **b);
 
 #endif

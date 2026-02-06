@@ -1,3 +1,4 @@
 obj/
 push_swap
 libft/*.o
+libft.a

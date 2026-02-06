@@ -6,49 +6,51 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:04:56 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 19:08:36 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:50:49 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort_small.h"
 
-void	ft_sort_3(t_stack	*stack)
+void	ft_sort_3(t_stack **stack)
 {
 	int	first;
-	int	middle;
-	int	last;
+	int	second;
+	int	third;
 
-	first = stack->head->data;
-	middle = stack->head->next->data;
-	last = stack->head->next->next->data;
-	if (first > middle && middle < last && first < last)
-		ft_s(stack, "sa\n");
-	else if (first > middle && middle > last)
+	if (!stack || !*stack || !(*stack)->next || !(*stack)->next->next)
+		return ;
+	first = (*stack)->data;
+	second = (*stack)->next->data;
+	third = (*stack)->next->next->data;
+	if (first > second && second < third && first < third)
+		ft_swap_stack(stack, "sa");
+	else if (first > second && second > third)
 	{
-		ft_s(stack, "sa\n");
-		ft_rr(stack, "rra\n");
+		ft_swap_stack(stack, "sa");
+		ft_rev_rotate(stack, "rra");
 	}
-	else if (first > middle && middle < last && first > last)
-		ft_r(stack, "ra\n");
-	else if (first < middle && middle > last && first < last)
+	else if (first > second && second < third && first > third)
+		ft_rotate(stack, "ra");
+	else if (first < second && second > third && first < third)
 	{
-		ft_s(stack, "sa\n");
-		ft_r(stack, "ra\n");
+		ft_swap_stack(stack, "sa");
+		ft_rotate(stack, "ra");
 	}
-	else if (first < middle && middle > last && first > last)
-		ft_rr(stack, "rra\n");
+	else if (first < second && second > third && first > third)
+		ft_rev_rotate(stack, "rra");
 }
 
-static int	ft_find_min(t_stack *stack)
+static int	ft_find_min(t_stack	*stack)
 {
 	int		index;
 	int		min_index;
-	t_node	*current;
 	int		min;
+	t_stack	*current;
 
-	if (!stack || !stack->head)
+	if (!stack)
 		return (-1);
-	current = stack->head;
+	current = stack;
 	min = current->data;
 	min_index = 0;
 	index = 0;
@@ -65,28 +67,32 @@ static int	ft_find_min(t_stack *stack)
 	return (min_index);
 }
 
-void	ft_sort_5(t_stack *stack_a, t_stack *stack_b)
+
+void	ft_sort_5(t_stack	**stack_a, t_stack	**stack_b)
 {
 	int	index;
 	int	rotations;
 
 	if (!stack_a || !stack_b)
 		return ;
-	while (stack_a->size > 3)
+	while (ft_stack_size(*stack_a) > 3)
 	{
-		index = ft_find_min(stack_a);
-		if (index <= stack_a->size / 2)
+		index = ft_find_min(*stack_a);
+		if (index <= ft_stack_size(*stack_a) / 2)
+		{
 			while (index--)
-				ft_r(stack_a, "ra\n");
+				ft_rotate(stack_a, "ra");
+		}
 		else
 		{
-			rotations = stack_a->size - index;
+			rotations = ft_stack_size(*stack_a) - index;
 			while (rotations--)
-				ft_rr(stack_a, "rra\n");
+				ft_rev_rotate(stack_a, "rra");
 		}
-		ft_p(stack_a, stack_b, "pb\n");
+		ft_push(stack_b, stack_a, "pb");
 	}
 	ft_sort_3(stack_a);
-	while (stack_b->size)
-		ft_p(stack_b, stack_a, "pa\n");
+	while (ft_stack_size(*stack_b) > 0)
+		ft_push(stack_a, stack_b, "pa");
 }
+

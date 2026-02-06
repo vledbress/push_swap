@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:10:57 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 19:36:39 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:52:03 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,30 @@ static int	ft_calculate_chunk(int total_size)
 	return (32);
 }
 
-void	ft_move_chunks_b(t_stack *a, t_stack *b)
+void	ft_move_chunks_b(t_stack	**a, t_stack	**b)
 {
 	int	i;
 	int	range;
 
+	if (!a || !b)
+		return ;
 	i = 0;
-	range = ft_calculate_chunk(a->size);
-	while (a->size)
+	range = ft_calculate_chunk(ft_stack_size(*a));
+	while (ft_stack_size(*a) > 0)
 	{
-		if (a->head->data <= i)
+		if ((*a)->data <= i)
 		{
-			ft_p(a, b, "pb\n");
-			ft_r(b, "rb\n");
+			ft_push(b, a, "pb");
+			ft_rotate(b, "rb");
 			i++;
 		}
-		else if (a->head->data <= i + range)
+		else if ((*a)->data <= i + range)
 		{
-			ft_p(a, b, "pb\n");
+			ft_push(b, a, "pb");
 			i++;
 		}
 		else
-			ft_r(a, "ra\n");
+			ft_rotate(a, "ra");
 	}
 }
+

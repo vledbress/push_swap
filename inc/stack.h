@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:26:29 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 20:20:23 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:42:38 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 t_stack	*ft_new_node(int data);
 void	ft_destroy_node(t_stack	*node);
 void	ft_destroy_stack(t_stack	**stack);
+int		ft_stack_size(t_stack *stack);
 
 t_stack	*ft_push_top(t_stack	**stack, t_stack	*node);
 t_stack	*ft_push_bottom(t_stack	**stack, t_stack	*node);
