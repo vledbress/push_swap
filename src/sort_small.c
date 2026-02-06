@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:04:56 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 20:50:49 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:04:36 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ static int	ft_find_min(t_stack	*stack)
 	return (min_index);
 }
 
-
 void	ft_sort_5(t_stack	**stack_a, t_stack	**stack_b)
 {
 	int	index;
@@ -95,4 +94,3 @@ void	ft_sort_5(t_stack	**stack_a, t_stack	**stack_b)
 	while (ft_stack_size(*stack_b) > 0)
 		ft_push(stack_a, stack_b, "pa");
 }
-

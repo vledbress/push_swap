@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:16:51 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 20:53:10 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:04:54 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,3 @@ void	ft_move_chunks_a(t_stack	**a, t_stack	**b)
 		ft_push(a, b, "pa");
 	}
 }
-

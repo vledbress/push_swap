@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:48:09 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 20:43:54 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:05:58 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_stack	*ft_pop_bottom(t_stack	**stack)
 	return (curr);
 }
 
-int		ft_stack_size(t_stack *stack)
+int	ft_stack_size(t_stack *stack)
 {
 	int	size;
 

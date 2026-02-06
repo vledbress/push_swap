@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 20:56:14 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:05:21 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static int	ft_is_sorted(t_stack	*stack)
 {
-	t_stack *current;
+	t_stack	*current;
 
 	if (!stack || !stack->next)
 		return (1);
@@ -32,7 +32,6 @@ static int	ft_is_sorted(t_stack	*stack)
 	return (1);
 }
 
-
 void	ft_sort(t_stack	**stack_a, t_stack	**stack_b)
 {
 	int	size;
@@ -43,7 +42,7 @@ void	ft_sort(t_stack	**stack_a, t_stack	**stack_b)
 	if (size < 2 || ft_is_sorted(*stack_a))
 		return ;
 	if (size == 2)
-		return (ft_swap_stack(stack_a, "sa\n"), (void)0);
+		return (ft_swap_stack(stack_a, "sa"), (void)0);
 	if (size == 3)
 		return (ft_sort_3(stack_a), (void)0);
 	if (size < 6)
@@ -51,4 +50,3 @@ void	ft_sort(t_stack	**stack_a, t_stack	**stack_b)
 	ft_move_chunks_b(stack_a, stack_b);
 	ft_move_chunks_a(stack_a, stack_b);
 }
-
