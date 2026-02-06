@@ -6,7 +6,7 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/02/06 15:28:14 by vborysov         ###   ########.fr        #
+#    Updated: 2026/02/06 20:36:34 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,19 +24,12 @@ NAME = push_swap
 LIBFT = libft/libft.a
 
 SRCS = main.c \
-	   node.c \
 	   stack_basic.c \
-	   stack_operations_1.c \
-	   stack_operations_2.c \
+	   stack_creation.c \
+	   stack_sort.c \
 	   error.c \
 	   atol.c \
 	   binary.c \
-	   sort.c \
-	   stack_io.c \
-	   sort_small.c \
-	   sort_move_b.c \
-	   sort_move_a.c \
-	   stack_init.c \
 	   parse.c
 	   
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
@@ -52,7 +45,7 @@ all: $(NAME)
 
 
 $(NAME): $(OBJS)
-	make -C libft
+	make -C libft bonus
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 

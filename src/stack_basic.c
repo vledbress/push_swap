@@ -6,77 +6,73 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:48:09 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/04 23:04:41 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:27:12 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include <stdlib.h>
 
-void	ft_push_top(t_stack *stack, t_node *node)
+t_stack	*ft_push_top(t_stack	**stack, t_stack	*node)
 {
 	if (!stack || !node)
-		return ;
-	node->next = stack->head;
-	stack->head = node;
-	stack->size++;
-}
-
-void	ft_push_bottom(t_stack *stack, t_node *node)
-{
-	t_node	*curr;
-
-	if (!stack || !node)
-		return ;
-	node->next = NULL;
-	if (!stack->head)
-	{
-		stack->head = node;
-		stack->size++;
-		return ;
-	}
-	curr = stack->head;
-	while (curr->next)
-		curr = curr->next;
-	curr->next = node;
-	stack->size++;
-}
-
-t_node	*ft_pop_top(t_stack *stack)
-{
-	t_node	*node;
-
-	if (!stack || !stack->head)
 		return (NULL);
-	node = stack->head;
-	stack->head = node->next;
-	node->next = NULL;
-	stack->size--;
+	node->next = *stack;
+	*stack = node;
 	return (node);
 }
 
-t_node	*ft_pop_bottom(t_stack *stack)
+t_stack	*ft_push_bottom(t_stack	**stack, t_stack	*node)
 {
-	t_node	*curr;
-	t_node	*prev;
+	t_stack	*curr;
 
-	if (!stack || !stack->head)
+	if (!stack || !node)
 		return (NULL);
-	if (!stack->head->next)
+	node->next = NULL;
+	if (!*stack)
 	{
-		curr = stack->head;
-		stack->head = NULL;
-		stack->size--;
+		*stack = node;
+		return (node);
+	}
+	curr = *stack;
+	while (curr->next)
+		curr = curr->next;
+	curr->next = node;
+	return (node);
+}
+
+t_stack	*ft_pop_top(t_stack	**stack)
+{
+	t_stack	*node;
+
+	if (!stack || !*stack)
+		return (NULL);
+	node = *stack;
+	*stack = node->next;
+	node->next = NULL;
+	return (node);
+}
+
+t_stack	*ft_pop_bottom(t_stack	**stack)
+{
+	t_stack	*curr;
+	t_stack	*prev;
+
+	if (!stack || !*stack)
+		return (NULL);
+	curr = *stack;
+	if (!curr->next)
+	{
+		*stack = NULL;
 		return (curr);
 	}
 	prev = NULL;
-	curr = stack->head;
 	while (curr->next)
 	{
 		prev = curr;
 		curr = curr->next;
 	}
-	prev->next = NULL;
-	stack->size--;
+	if (prev)
+		prev->next = NULL;
 	return (curr);
 }
