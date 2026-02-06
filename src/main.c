@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 21:00:19 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:13:27 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 		exit(1);
 	int	len;
 	long	*array;
-	
+
 	ft_parse_args(argc, argv, &array, &len);
 	
 	t_stack	*a = NULL;
