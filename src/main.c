@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/05 01:23:43 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:17:10 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,50 +42,20 @@
 // }
 
 #include "../libft/libft.h"
+#include "error.h"
+#include "parse.h"
 
 int main(int argc, char **argv)
 {
-	if (argc != 2)
-		return (-1);
-		
-	char **args = ft_split(argv[1], ' ');
-	int len = 0;
-	for (; args[len]; ++len);
-		
+	if (argc < 2)
+		ft_error();
+	int	len;
+	long	*array;
 	
-	// === Check On normal nums (if contains only digits)===
-
-
-	long *array_nums = (long *)malloc(sizeof(long) * len);
-	for (int i = 0; i < len; ++i)
-		array_nums[i] = ft_atol(args[i]);
-
-
-	for (int i = 0; i < len; ++i)
-	{
-		if (array_nums[i] > INT_MAX || array_nums[i] < INT_MIN)
-		{
-			printf("Error\n");
-			break ;
-		}
-	}
+	ft_parse_args(argc, argv, &array, &len);
 	
 	for (int i = 0; i < len; ++i)
-    {
-        for (int j = i + 1; j < len; ++j)
-        {
-            if (array_nums[i] == array_nums[j])
-            {
-                printf("Error\n");
-				break ;
-            }
-        }
-    }
-		
-		
-
-	for (int i = 0; args[i]; ++i)
-		free(args[i]);
-	free(args);
-	free(array_nums);
+		printf("%ld ", array[i]);
+	
+	free(array);
 }
