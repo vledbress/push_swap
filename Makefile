@@ -6,7 +6,7 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/02/06 14:39:28 by vborysov         ###   ########.fr        #
+#    Updated: 2026/02/06 15:28:14 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ NAME = push_swap
 LIBFT = libft/libft.a
 
 SRCS = main.c \
-       io.c \
 	   node.c \
 	   stack_basic.c \
 	   stack_operations_1.c \
@@ -32,7 +31,6 @@ SRCS = main.c \
 	   error.c \
 	   atol.c \
 	   binary.c \
-	   swap.c \
 	   sort.c \
 	   stack_io.c \
 	   sort_small.c \

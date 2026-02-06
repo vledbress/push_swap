@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:35:38 by vborysov          #+#    #+#             */
-/*   Updated: 2025/11/10 19:48:56 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:31:03 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*ft_strnstr(const char	*big, const char	*little, size_t len);
 int		ft_atoi(const char	*str);
 void	*ft_calloc(size_t len, size_t element_size);
 char	*ft_strdup(const char *s);
+void	ft_swap(int	*a, int	*b);
 
 //===================== 2nd Part ==========================
 
@@ -55,8 +56,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(const char *s, int fd);
+void	ft_putendl_fd(const char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 //===================== Bonus Part ==========================

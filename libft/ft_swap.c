@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io.c                                               :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 17:36:29 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 19:27:02 by vborysov         ###   ########.fr       */
+/*   Created: 2026/02/06 15:24:20 by vborysov          #+#    #+#             */
+/*   Updated: 2026/02/06 15:26:07 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "io.h"
+#include "libft.h"
 
-void	ft_putchar(int fd, char c)
+void	ft_swap(int	*a, int	*b)
 {
-	write(fd, &c, 1);
-}
+	int	temp;
 
-void	ft_putstr(int fd, const char *str)
-{
-	if (!str)
-		return ;
-	while (*str)
-		ft_putchar(fd, *str++);
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

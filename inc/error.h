@@ -6,15 +6,14 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:47:56 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/05 19:18:34 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:28:39 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
 # include <stdlib.h>
-# include "io.h"
-# include "atol.h"
+# include "../libft/libft.h"
 
 void	ft_error(void);
 

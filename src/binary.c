@@ -6,12 +6,12 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 18:06:06 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/03 17:35:08 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:23:09 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "binary.h"
-#include "swap.h"
+#include "../libft/libft.h"
 
 static int	ft_partition(int	*arr, int start, int end)
 {

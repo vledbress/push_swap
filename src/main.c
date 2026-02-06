@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 15:17:10 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:27:55 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int main(int argc, char **argv)
 	
 	ft_parse_args(argc, argv, &array, &len);
 	
+
 	for (int i = 0; i < len; ++i)
 		printf("%ld ", array[i]);
 	

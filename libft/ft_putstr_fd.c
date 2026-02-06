@@ -6,13 +6,13 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:01:06 by vborysov          #+#    #+#             */
-/*   Updated: 2025/11/10 19:59:27 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:32:05 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(const char *s, int fd)
 {
 	if (!s)
 		return ;

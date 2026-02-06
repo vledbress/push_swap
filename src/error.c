@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:51:12 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/05 17:15:50 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:29:50 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 void	ft_error(void)
 {
-	ft_putstr(2, "Error\n");
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
-
-
