@@ -6,7 +6,7 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/02/07 01:44:58 by vborysov         ###   ########.fr        #
+#    Updated: 2026/02/07 20:19:57 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ all: $(NAME)
 
 
 $(NAME): $(OBJS)
-	make -C libft bonus
+	make -C libft
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 
