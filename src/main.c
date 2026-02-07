@@ -6,17 +6,18 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 17:50:42 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/07 01:48:10 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/07 02:23:01 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "error.h"
 #include "parse.h"
-#include <stdio.h>
 #include "sort.h"
 #include "binary.h"
 #include "stack_init.h"
+
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -32,6 +33,7 @@ int	main(int argc, char **argv)
 	ft_parse_args(argc, argv, &array, &len);
 	ft_init_stack(&a, array, len);
 	ft_sort(&a, &b);
+	//printf("Is sorted: %d\n", ft_is_sorted(a));
 	ft_destroy_stack(&a);
 	ft_destroy_stack(&b);
 	free(array);

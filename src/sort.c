@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:19:08 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 21:05:21 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/07 02:21:48 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "sort_move.h"
 #include "sort_small.h"
 
-static int	ft_is_sorted(t_stack	*stack)
+int	ft_is_sorted(t_stack	*stack)
 {
 	t_stack	*current;
 
