@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   stack_init.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 17:12:47 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/07 01:45:14 by vborysov         ###   ########.fr       */
+/*   Created: 2026/02/07 01:31:26 by vborysov          #+#    #+#             */
+/*   Updated: 2026/02/07 01:46:28 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#ifndef STACK_INIT_H
+# define STACK_INIT_H
+# include "stack.h"
+# include "binary.h"
 # include "error.h"
-# include "atol.h"
 
-void	ft_parse_args(int argc, char	**argv, int	**raw, int	*len);
+void	ft_init_stack(t_stack	**stack, int	*raw, int len);
 
 #endif

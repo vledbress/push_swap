@@ -6,7 +6,7 @@
 #    By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 17:52:05 by vborysov          #+#    #+#              #
-#    Updated: 2026/02/06 20:57:00 by vborysov         ###   ########.fr        #
+#    Updated: 2026/02/07 01:44:58 by vborysov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS = main.c \
 	   sort.c \
 	   sort_small.c \
 	   sort_move_a.c \
-	   sort_move_b.c
+	   sort_move_b.c \
+	   stack_init.c
 
 	   
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))

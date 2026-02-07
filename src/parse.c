@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 17:14:49 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/06 15:19:36 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/07 01:46:10 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	ft_free_all(int need_free, char	**tokens)
 	free(tokens);
 }
 
-static int	ft_check_duplicates(long	*array, int len)
+static int	ft_check_duplicates(int	*array, int len)
 {
 	int	i;
 	int	j;
@@ -74,7 +74,7 @@ static int	ft_check_duplicates(long	*array, int len)
 	return (1);
 }
 
-void	ft_parse_args(int argc, char **argv, long **raw, int *len)
+void	ft_parse_args(int argc, char **argv, int **raw, int *len)
 {
 	char	**tokens;
 	int		i;
@@ -84,7 +84,7 @@ void	ft_parse_args(int argc, char **argv, long **raw, int *len)
 	*len = 0;
 	while (tokens[*len])
 		(*len)++;
-	*raw = malloc(sizeof(long) * (*len));
+	*raw = malloc(sizeof(int) * (*len));
 	if (!*raw)
 		return (ft_free_all(argc == 2, tokens), ft_error());
 	i = 0;
@@ -95,7 +95,7 @@ void	ft_parse_args(int argc, char **argv, long **raw, int *len)
 		val = ft_atol(tokens[i]);
 		if (val > INT_MAX || val < INT_MIN)
 			return (free(*raw), ft_free_all(argc == 2, tokens), ft_error());
-		(*raw)[i] = val;
+		(*raw)[i] = (int)val;
 		++i;
 	}
 	ft_free_all(argc == 2, tokens);
