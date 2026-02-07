@@ -6,17 +6,33 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:10:57 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/07 16:39:35 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/07 20:18:07 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort_move.h"
 
-static int	ft_calculate_chunk(int total_size)
+// static int	ft_calculate_chunk(int total_size)
+// {
+// 	if (total_size <= 100)
+// 		return (15);
+// 	return (32);
+// }
+
+// static int  ft_calculate_chunk(int total_size)
+// {
+//     if (total_size <= 100)
+//         return (16); // Чуть-чуть увеличим для сотни
+//     if (total_size <= 500)
+//         return (30); // Уменьшим с 32 до 30 для пяти сотен
+//     return (total_size / 15);
+// }
+
+static int	ft_calculate_chunk(int size)
 {
-	if (total_size <= 100)
-		return (15);
-	return (32);
+	if (size <= 100)
+		return (16);
+	return (30);
 }
 
 void	ft_move_chunks_b(t_stack	**a, t_stack	**b)
