@@ -6,7 +6,7 @@
 /*   By: vborysov <vborysov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 17:14:49 by vborysov          #+#    #+#             */
-/*   Updated: 2026/02/07 01:46:10 by vborysov         ###   ########.fr       */
+/*   Updated: 2026/02/07 01:56:15 by vborysov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,5 @@ void	ft_parse_args(int argc, char **argv, int **raw, int *len)
 	}
 	ft_free_all(argc == 2, tokens);
 	if (!ft_check_duplicates(*raw, *len))
-		ft_error();
+		return (free(*raw), ft_error());
 }
