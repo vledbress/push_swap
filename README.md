@@ -40,6 +40,8 @@ For the sorting logic, I implemented an optimized **Butterfly (Chunk-based) Algo
 ### Performance Benchmarks:
 | Stack Size | Operations Count (Avg) | Limit for 100% |
 | :--- | :--- | :--- |
+| **3 numbers** | **~5** | < 5 |
+| **5 numbers** | **~13** | < 12 |
 | **100 numbers** | **~600** | < 700 |
 | **500 numbers** | **~5200** | < 5500 |
 
@@ -63,12 +65,17 @@ The `push_swap` program is designed to handle input in two different formats:
 ./push_swap "4 5 6 1 3"
 ```
 
+#### 3. Testing: 
+```bash
+arg="4 2 5 8 0"; ./push_swap $arg | ./checker_linux $arg
+```
+
 ## Resources
 
 ### References
 * **Chunk Based Sorting Algorithm Logic:** [Chunk Algorithm](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a) — for understanding how chunk sort works
-* [Push_swap Visualizer](https://github.com/o-reo/push_swap_visualizer) — for debugging
-
+* **Push_swap Visualizer** [github](https://github.com/o-reo/push_swap_visualizer) — for debugging
+* **Push_swap Tester** [github](https://github.com/gemartin99/Push-Swap-Tester) - Tester for push_swap
 ### AI Usage Disclosure
 
 AI tools (ChatGPT / Gemini) were used as supportive development aids, similar to documentation or online references, in the following areas:
